@@ -1,0 +1,1186 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="通过示例学习VB.NET">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-vbnet-mars-2004/hiianhui.html">
+      
+      
+        <link rel="prev" href="hiong-vbnet-e-vsnet-aiauingieian.html">
+      
+      
+        <link rel="next" href="huuuangen.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>6. 事件处理 - 通过示例学习VB.NET</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "通过示例学习VB.NET";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="通过示例学习VB.NET" class="md-header__button md-logo" aria-label="通过示例学习VB.NET" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            通过示例学习VB.NET
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. 事件处理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-vbnet-mars-2004" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="通过示例学习VB.NET" class="md-nav__button md-logo" aria-label="通过示例学习VB.NET" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    通过示例学习VB.NET
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-vbnet-mars-2004" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vbnet-uanihu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. VB.NET 语言基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="eiieouiieou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 类、结构体、接口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hangonge-net-ei.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 常用的 .NET 类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hiong-vbnet-e-vsnet-aiauingieian.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 使用 VB.NET 和 VS.NET 开发图形界面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 事件处理
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="hiianhui.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 事件处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. 委托对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. 事件处理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2. 事件处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1. 声明事件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2. 定义事件处理程序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.3. 触发事件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#624" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.4. 示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="huuuangen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 数据库访问
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="----hiingianheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.     执行线程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tcpip-ianheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. TCP/IP 编程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="web-uu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Web 服务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aiu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 待续……
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6">6. <span style="color: #365f91">事件处理</span></h1>
+<p>在上一章中，我们讨论了与组件相关的事件概念。现在我们将了解如何在自己的类中创建事件。这是一个较为复杂的概念，初学者可能不感兴趣，建议直接跳至下一章。</p>
+<h2 id="61">6.1. <span style="color: #4f81bd">委托对象</span></h2>
+<p>语句</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="k">Delegate</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">opération</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
+</code></pre></div>
+<p>定义了一个名为 <em>operation</em> 的类型，它实际上是一个函数原型，接受两个整数并返回一个整数。正是 <span style="color: #0000ff">delegate</span> 关键字使 <em>operation</em> 成为函数原型定义。[operation] 类型可以如下赋值给变量：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> op <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> opération(<span style="color:#0000ff">AddressOf</span> [fonction])</span></span>
+</code></pre></div>
+
+<p>类型为 [delegate] 的变量被构造为一个对象。构造函数的参数是与该委托实例关联的函数。在 VB 中，该函数指定为 AddressOf function，其中 [function] 是函数的名称。一旦创建了委托实例，它就可以作为函数使用：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the delegate is executed</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = op(4, 7)</span></span>
+</code></pre></div>
+
+<p>该委托 [operation] 被定义为接受两个 [integer] 类型的参数，并返回相同类型的结果。因此，上文中的实例 [op] 被用作此类函数。请看以下示例：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; delegated functions</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Imports</span> System</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> delegate1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; function prototype definition</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; accepts 2 integers as parameters and returns an integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Function</span> opération(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; two instance methods corresponding to the prototype</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; add</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Function</span> ajouter(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;ajouter(&quot; &amp; n1 &amp; &quot;,&quot; &amp; n2 &amp; &quot;)&quot;))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> n1 + n2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; subtract</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Function</span> soustraire(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;soustraire(&quot; &amp; n1 &amp; &quot;,&quot; &amp; n2 &amp; &quot;)&quot;))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> n1 - n2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; a static method corresponding to the prototype</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Function</span> augmenter(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;augmenter(&quot; &amp; n1 &amp; &quot;,&quot; &amp; n2 &amp; &quot;)&quot;))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> n1 + 2 * n2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; test program</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Sub</span> Main()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; define an operation object to store functions</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we register the static function increase</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> op <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> opération(<span style="color:#0000ff">AddressOf</span> delegate1.augmenter)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the delegate is executed</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = op(4, 7)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;n=&quot; &amp; n))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; creation of a c1 object of type class1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> c1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> delegate1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we register c1&#x27;s add method in the delegate</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        op = <span style="color:#0000ff">New</span> delegate1.opération(<span style="color:#0000ff">AddressOf</span> c1.ajouter)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; execution of delegated object</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        n = op(2, 3)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;n=&quot; &amp; n))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we register the subtract method of c1 in the delegate</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        op = <span style="color:#0000ff">New</span> delegate1.opération(<span style="color:#0000ff">AddressOf</span> c1.soustraire)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        n = op(2, 3)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;n=&quot; &amp; n))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+</code></pre></div>
+
+<p>执行结果如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>augmenter(4,7)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>n=18
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ajouter(2,3)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>n=5
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>soustraire(2,3)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>n=-1
+</code></pre></div>
+<h2 id="62">6.2. <span style="color: #4f81bd">事件处理</span></h2>
+<p><em>委托</em>对象可以用于什么？</p>
+<p>正如我们在下面的示例中所见，它主要用于事件处理。类 <em>C1</em> 可以生成 <em>evti</em> 事件。当发生 <em>evti</em> 事件时，类型为 <em>C1</em> 的对象将触发类型<em>为委托的 evtiDéclenché</em> 对象的执行。 随后，<em>evtiDéclenché</em> 委托对象中注册的所有函数都将被执行。如果使用对象 <em>C1</em> 的对象 <em>C2</em> 希望在对象 <em>C1</em> 上发生 <em>evti</em> 事件时收到通知，它将把其方法之一 <em>C2.f</em> 注册到对象 <em>C1</em> 的委托对象 <em>C1.evtiDéclenché</em> 中，这样每当对象 <em>C1</em> 上发生 <em>evti</em> 事件时，方法 <em>C2.f</em> 就会被执行。 由于委托对象 <em>C1.evtiDéclenché</em> 可以注册多个函数，因此不同的对象 <em>Ci</em> 均可向委托 <em>C1.evtiDéclenché</em> 注册，以接收关于 <em>C1</em> 上 <em>evti</em> 事件的通知。 </p>
+<h3 id="621">6.2.1. <span style="color: #4f81bd">声明事件</span></h3>
+<p>事件的声明如下 (1)：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">Delegate</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">proc</span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">d</span><span class="c">&#39;arguments)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">Public</span><span class="w"> </span><span class="k">Event</span><span class="w"> </span><span class="n">événement</span><span class="w"> </span><span class="ow">as</span><span class="w"> </span><span class="n">proc</span>
+</code></pre></div>
+<p>或 (2)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">Public</span><span class="w"> </span><span class="k">Event</span><span class="w"> </span><span class="n">événement</span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">d</span><span class="c">&#39;arguments)</span>
+</code></pre></div>
+<p>关键字 [Event] 将一段数据定义为事件。该事件与其处理程序必须具备的签名相关联。该签名可以通过委托（方法 1）或直接（方法 2）进行定义。</p>
+<h3 id="622">6.2.2. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">定义事件处理程序</span></strong></span></h3>
+<p>当 [RaiseEvent] 语句触发事件时，必须对其进行处理。负责处理事件的程序称为事件处理程序。创建 [Event] 对象时，仅声明事件处理程序的签名。该签名即与事件关联的 [delegate] 对象的签名。 完成此步骤后，即可将处理程序与事件关联。这些处理程序必须与事件关联的 [delegate] 具有相同的签名。要将事件处理程序与事件关联，请使用 [AddHandler] 语句，语法如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>AddHandler event, AddressOf eventhandler
+</code></pre></div>
+<ul>
+  <li><b>event</b>：要关联新事件处理程序的事件变量
+  </li>
+  <li><b>eventhandler</b>：事件处理程序的名称——其签名必须与该事件关联的 [委托] 相同
+  </li>
+</ul>
+
+<p>您可以为一个事件关联任意数量的处理程序。当关联的事件被触发时，所有处理程序都将被执行。</p>
+<h3 id="623">6.2.3. <span style="color: #4f81bd">触发事件</span></h3>
+<p>要通过编程方式触发事件，请使用 [RaiseEvent] 语句：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">RaiseEvent</span><span class="w"> </span><span class="n">eventname</span><span class="o">[</span><span class="p">(</span><span class="w"> </span><span class="n">argumentlist</span><span class="w"> </span><span class="p">)</span><span class="o">]</span>
+</code></pre></div>
+<ul>
+  <li><b>eventname</b>：事件变量（使用 Event 关键字声明）
+  </li>
+  <li><b>参数列表</b>：与该事件关联的委托的参数。
+  </li>
+</ul>
+
+<p>所有使用 AddHandler 语句与该事件关联的处理程序都将被调用。它们将接收事件签名中定义的参数作为参数。</p>
+<h3 id="624">6.2.4. <span style="color: #4f81bd">示例</span></h3>
+<p>请看以下示例：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;event management</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Imports</span> System</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> myEventArgs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Inherits</span> EventArgs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> _saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        _saisie = saisie</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; read-only property</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _saisie</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> émetteur</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class issuing an event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Private _nom As String    &#x27; name of issuer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        _nom = nom</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; ToString</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _nom</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the prototype of the functions responsible for processing the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> _evtHandler(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; pool of event managers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Event</span> evtHandler <span style="color:#0000ff">As</span> _evtHandler</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; method of requesting the issue of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> envoyerEvt(<span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; all subscribers are notified</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we act as if the event originated here</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">RaiseEvent</span> evtHandler(<span style="color:#0000ff">Me</span>, evt)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; an evt treatment class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> souscripteur</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Private nom As String    &#x27; name of subscriber</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Private sender As émetteur    &#x27; evts sender</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>, <span style="color:#0000ff">ByVal</span> e <span style="color:#0000ff">As</span> émetteur)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we note the name of the subscriber</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Me</span>.nom = nom</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; and the sender of the evts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Me</span>.sender = e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; register to receive news from the transmitter e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">AddHandler</span> e.evtHandler, <span style="color:#0000ff">AddressOf</span> traitementEvt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; event manager</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> traitementEvt(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; evt display</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;L&#x27;objet [&quot; + sender.ToString + &quot;] a signalé la saisie erronée [&quot; + evt.ToString + &quot;] au souscripteur [&quot; + nom + &quot;]&quot;))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; a test program</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> test</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Sub</span> Main()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; creation of an evts transmitter</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> émetteur1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> émetteur(&quot;émetteur1&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; create a table of subscribers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; for events issued by issuer1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> souscripteurs() <span style="color:#0000ff">As</span> souscripteur = {<span style="color:#0000ff">New</span> souscripteur(&quot;s1&quot;, émetteur1), <span style="color:#0000ff">New</span> souscripteur(&quot;s2&quot;, émetteur1)}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; read a sequence of integers from the keyboard</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; as soon as one is wrong, we issue an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span> = Console.In.ReadLine().Trim()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; as long as the line entered is not empty</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">While</span> saisie &lt;&gt; &quot;&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; is the input a whole number?</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Try</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = <span style="color:#0000ff">Integer</span>.Parse(saisie)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Catch</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; not an integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; we warn everyone</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                émetteur1.envoyerEvt(<span style="color:#0000ff">New</span> myEventArgs(saisie))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">End</span> <span style="color:#0000ff">Try</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; we warn everyone</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; new entry</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            saisie = Console.In.ReadLine().Trim()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">While</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; end</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Environment.Exit(0)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+</code></pre></div>
+
+<p>上面的代码相当复杂。让我们来分解一下。在事件处理中，有一个事件<em>发送者</em>，它会将事件详细信息（<em>EventArgs</em>）发送给对相关事件感兴趣的订阅者。此处的事件发送类如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> émetteur</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class issuing an event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Private _nom As String    &#x27; name of issuer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        _nom = nom</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; ToString</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _nom</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the prototype of the functions responsible for processing the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> _evtHandler(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; pool of event managers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Event</span> evtHandler <span style="color:#0000ff">As</span> _evtHandler</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; method of requesting the issue of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> envoyerEvt(<span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; all subscribers are notified</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we act as if the event originated here</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">RaiseEvent</span> evtHandler(<span style="color:#0000ff">Me</span>, evt)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+</code></pre></div>
+
+<p>每个<em>发射器</em>对象都有一个默认<em>名称</em>。已重定义 <em>ToString</em> 方法，因此当<em>发射器</em>对象转换为<em>字符串时，</em>将返回其名称。该类定义了一个事件：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the prototype of the functions responsible for processing the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> _evtHandler(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Event</span> evtHandler <span style="color:#0000ff">As</span> _evtHandler</span></span>
+</code></pre></div>
+
+<p>事件处理函数的第一个参数将是触发该事件的对象。第二个参数的类型为 myEventArgs，这是一个提供事件详细信息的对象，我们稍后将对此进行讨论。若要在<em>触发器</em>对象外部触发事件，我们需在类中添加 <em>envoyerEvt</em> 方法：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; method of requesting the issue of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> envoyerEvt(<span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; all subscribers are notified</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we act as if the event originated here</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">RaiseEvent</span> evtHandler(<span style="color:#0000ff">Me</span>, evt)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+</code></pre></div>
+
+<p>我们需要定义发射器类触发的事件类型。为此，我们定义了 <em>myEventArgs</em> 类：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> myEventArgs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> _saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        _saisie = saisie</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; read-only property</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _saisie</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+</code></pre></div>
+
+<p>我们关注的是错误的键盘输入。我们将要求用户在键盘上输入整数，一旦他们输入的字符串不代表整数，就会触发一个事件。作为事件详情，我们将直接提供该错误输入。这就是该类中 <em>_input</em> 属性的作用。因此，会创建一个 <em>myEventArgs</em> 对象，并将错误输入作为其参数。 我们还重写了 <em>ToString</em> 方法，以便在将 <em>myEventArgs</em> 对象转换为字符串时，能够获取 <em>_input</em> 属性。 </p>
+<p>我们已经定义了事件发射器及其发出的事件类型。接下来，我们将定义对这些事件感兴趣的订阅者的类型。</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; an evt treatment class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> souscripteur</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Private nom As String     &#x27; name of subscriber</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Private sender As émetteur     &#x27; evts sender</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>, <span style="color:#0000ff">ByVal</span> e <span style="color:#0000ff">As</span> émetteur)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; we note the name of the subscriber</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Me</span>.nom = nom</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; and the sender of the evts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Me</span>.sender = e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; register to receive news from the transmitter e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">AddHandler</span> e.evtHandler, <span style="color:#0000ff">AddressOf</span> traitementEvt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; event manager</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> traitementEvt(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; evt display</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            Console.Out.WriteLine((&quot;L&#x27;objet [&quot; + sender.ToString + &quot;] a signalé la saisie erronée [&quot; + evt.ToString + &quot;] au souscripteur [&quot; + nom + &quot;]&quot;))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
+</code></pre></div>
+
+<p>订阅者由两个参数定义：其名称（<em>name</em> 属性）以及它希望处理其事件的<em>发射器</em>对象（<em>sender</em> 属性）。这两个参数会被传递给对象的构造函数。在构造过程中，订阅者会订阅发射器的事件：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="font-weight:bold;color:#ff0000">&#x27; on s&#x27;inscrit pour recevoir les evts de l&#x27;émetteur e</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">AddHandler</span> e.evtHandler, <span style="color:#0000ff">AddressOf</span> traitementEvt</span></span>
+</code></pre></div>
+
+<p>向发布者注册的函数是 <em><code>traitementEvt</code></em>。订阅者类的此方法会显示其接收到的两个参数（<em><code>sender</code></em>、<em><code>evt</code></em>）以及接收者的名称（<em><code>nom</code></em>）。已定义了生成的事件类型、这些事件发布者的类型以及订阅者的类型。剩下的就是实现它们：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; a test program</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> test</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Sub</span> Main()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; creation of an evts transmitter</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Dim</span> émetteur1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> émetteur(&quot;émetteur1&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; create a table of subscribers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; for events issued by issuer1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Dim</span> souscripteurs() <span style="color:#0000ff">As</span> souscripteur = {<span style="color:#0000ff">New</span> souscripteur(&quot;s1&quot;, émetteur1), <span style="color:#0000ff">New</span> souscripteur(&quot;s2&quot;, émetteur1)}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; read a sequence of integers from the keyboard</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; as soon as one is wrong, we issue an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Dim</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span> = Console.In.ReadLine().Trim()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; as long as the line entered is not empty</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">While</span> saisie &lt;&gt; &quot;&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; is the input a whole number?</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">Try</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = <span style="color:#0000ff">Integer</span>.Parse(saisie)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">Catch</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    &#x27; not an integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    &#x27; we warn everyone</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    émetteur1.envoyerEvt(<span style="color:#0000ff">New</span> myEventArgs(saisie))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">End</span> <span style="color:#0000ff">Try</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; we warn everyone</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; new entry</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                saisie = Console.In.ReadLine().Trim()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">End</span> <span style="color:#0000ff">While</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; end</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            Environment.Exit(0)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
+</code></pre></div>
+
+<p>我们创建一个事件<em>发射器</em>对象：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; creation of an evts transmitter</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> émetteur1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> émetteur(&quot;émetteur1&quot;)</span></span>
+</code></pre></div>
+
+<p>我们<em>为émetteur</em>1对象发出的事件创建了一个包含两个订阅者的数组：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; create a table of subscribers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; for events issued by issuer1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> souscripteurs() <span style="color:#0000ff">As</span> souscripteur = {<span style="color:#0000ff">New</span> souscripteur(&quot;s1&quot;, émetteur1), <span style="color:#0000ff">New</span> souscripteur(&quot;s2&quot;, émetteur1)}</span></span>
+</code></pre></div>
+
+<p>我们要求用户通过键盘输入整数。一旦输入错误，我们就要求 <em>issuer1</em> 向其订阅者发送一个事件：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; on prévient tout le monde</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                émetteur1.envoyerEvt(<span style="color:#0000ff">New</span> myEventArgs(saisie))</span></span>
+</code></pre></div>
+
+<p>发送的事件类型为 <em>myEventArgs</em>，其中包含错误的输入。两个订阅者都应收到此事件并进行报告。如下面的执行所示。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dos&gt;evt1
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Nombre entier (rien pour arrêter) : 4
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Nombre entier (rien pour arrêter) : a
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [a] au souscripteur [s1]
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [a] au souscripteur [s2]
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Nombre entier (rien pour arrêter) : 1.6
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [1.6] au souscripteur [s1]
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [1.6] au souscripteur [s2]
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Nombre entier (rien pour arrêter) :
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
