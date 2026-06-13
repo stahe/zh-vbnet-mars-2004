@@ -12,10 +12,10 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/zh-vbnet-mars-2004/hiianhui.html">
+        <link rel="canonical" href="https://stahe.github.io/zh-vbnet-mars-2004/hiianuani.html">
       
       
-        <link rel="prev" href="hiong-vbnet-e-vsnet-aiauingieian.html">
+        <link rel="prev" href="hiong-vbnet-e-vsnet-ouianuingieian.html">
       
       
         <link rel="next" href="huuuangen.html">
@@ -29,7 +29,7 @@
     
     
       
-        <title>6. 事件处理 - 通过示例学习VB.NET</title>
+        <title>6. 事件管理 - 通过示例学习VB.NET</title>
       
     
     
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -128,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. 事件处理
+              6. 事件管理
             
           </span>
         </div>
@@ -330,14 +332,14 @@
   
   
     <li class="md-nav__item">
-      <a href="vbnet-uanihu.html" class="md-nav__link">
+      <a href="vbnetuanihu.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. VB.NET 语言基础
+    2. VB.NET语言基础
   
 
     
@@ -384,14 +386,14 @@
   
   
     <li class="md-nav__item">
-      <a href="hangonge-net-ei.html" class="md-nav__link">
+      <a href="hangongei-net.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. 常用的 .NET 类
+    4. 常用类 .NET
   
 
     
@@ -411,14 +413,14 @@
   
   
     <li class="md-nav__item">
-      <a href="hiong-vbnet-e-vsnet-aiauingieian.html" class="md-nav__link">
+      <a href="hiong-vbnet-e-vsnet-ouianuingieian.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. 使用 VB.NET 和 VS.NET 开发图形界面
+    5. 使用 VB.NET 和 VS.NET 构建图形界面
   
 
     
@@ -454,7 +456,7 @@
   <span class="md-ellipsis">
     
   
-    6. 事件处理
+    6. 事件管理
   
 
     
@@ -465,14 +467,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="hiianhui.html" class="md-nav__link md-nav__link--active">
+      <a href="hiianuani.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    6. 事件处理
+    6. 事件管理
   
 
     
@@ -512,19 +514,19 @@
   <a href="#62" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2. 事件处理
+        6.2. 事件管理
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.2. 事件处理">
+    <nav class="md-nav" aria-label="6.2. 事件管理">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#621" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2.1. 声明事件
+        6.2.1. 事件声明
       
     </span>
   </a>
@@ -638,14 +640,14 @@
   
   
     <li class="md-nav__item">
-      <a href="tcpip-ianheng.html" class="md-nav__link">
+      <a href="ianheng-tcp-ip.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    9. TCP/IP 编程
+    9. 编程 TCP-IP
   
 
     
@@ -665,14 +667,14 @@
   
   
     <li class="md-nav__item">
-      <a href="web-uu.html" class="md-nav__link">
+      <a href="webuu.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    10. Web 服务
+    10. Web服务
   
 
     
@@ -729,68 +731,68 @@
 
 
 
-<h1 id="6">6. <span style="color: #365f91">事件处理</span></h1>
-<p>在上一章中，我们讨论了与组件相关的事件概念。现在我们将了解如何在自己的类中创建事件。这是一个较为复杂的概念，初学者可能不感兴趣，建议直接跳至下一章。</p>
+<h1 id="6">6. <span style="color: #365f91">事件管理</span></h1>
+<p>上一章我们讨论了与组件相关的事件概念。现在我们将了解如何在自己的类中创建事件。这是一个较为复杂的概念，初学者可能不感兴趣，建议直接跳至下一章。</p>
 <h2 id="61">6.1. <span style="color: #4f81bd">委托对象</span></h2>
 <p>语句</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="k">Delegate</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">opération</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 </code></pre></div>
-<p>定义了一个名为 <em>operation</em> 的类型，它实际上是一个函数原型，接受两个整数并返回一个整数。正是 <span style="color: #0000ff">delegate</span> 关键字使 <em>operation</em> 成为函数原型定义。[operation] 类型可以如下赋值给变量：</p>
+<p>定义了一个名为 <em>opération</em> 的类型，它实际上是一个接受两个整数并返回一个整数的函数原型。正是关键字 <span style="color: #0000ff">delegate</span> 使 <em>opération</em> 成为函数原型的定义。 类型 [opération] 可以按以下方式赋值给变量：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> op <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> opération(<span style="color:#0000ff">AddressOf</span> [fonction])</span></span>
 </code></pre></div>
 
-<p>类型为 [delegate] 的变量被构造为一个对象。构造函数的参数是与该委托实例关联的函数。在 VB 中，该函数指定为 AddressOf function，其中 [function] 是函数的名称。一旦创建了委托实例，它就可以作为函数使用：</p>
+<p>类型为 [délégué] 的变量作为对象进行构造。构造函数的参数是与委托实例关联的函数。 在 VB 中，该函数以 AddressOf 函数的形式给出，其中 [fonction] 是函数的名称。一旦创建了委托的实例，它就可以像函数一样使用：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the delegate is executed</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 执行委托函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = op(4, 7)</span></span>
 </code></pre></div>
 
-<p>该委托 [operation] 被定义为接受两个 [integer] 类型的参数，并返回相同类型的结果。因此，上文中的实例 [op] 被用作此类函数。请看以下示例：</p>
+<p>委托 [opération] 被定义为接收两个类型为 [integer] 的参数，并返回同类型的结果。因此，上文中的实例 [op] 被用作此类函数。请看以下示例：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; delegated functions</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 委托函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Imports</span> System</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> delegate1</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; function prototype definition</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; accepts 2 integers as parameters and returns an integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 定义函数原型</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 接受 2 个整数作为参数并返回一个整数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Function</span> opération(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; two instance methods corresponding to the prototype</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; add</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 与原型对应的两个实例方法</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 加</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Function</span> ajouter(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;ajouter(&quot; &amp; n1 &amp; &quot;,&quot; &amp; n2 &amp; &quot;)&quot;))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> n1 + n2</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; subtract</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 减法</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Function</span> soustraire(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;soustraire(&quot; &amp; n1 &amp; &quot;,&quot; &amp; n2 &amp; &quot;)&quot;))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> n1 - n2</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; a static method corresponding to the prototype</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 一个与原型对应的静态方法</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Function</span> augmenter(<span style="color:#0000ff">ByVal</span> n1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>, <span style="color:#0000ff">ByVal</span> n2 <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span>) <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;augmenter(&quot; &amp; n1 &amp; &quot;,&quot; &amp; n2 &amp; &quot;)&quot;))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> n1 + 2 * n2</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; test program</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 测试程序</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Sub</span> Main()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; define an operation object to store functions</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we register the static function increase</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 定义一个操作类型的对象来存储函数</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 注册静态函数“增加”</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> op <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> opération(<span style="color:#0000ff">AddressOf</span> delegate1.augmenter)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the delegate is executed</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 执行委托</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = op(4, 7)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;n=&quot; &amp; n))</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; creation of a c1 object of type class1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 创建类型为 class1 的对象 c1</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> c1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> delegate1</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we register c1&#x27;s add method in the delegate</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 将 c1 的 add 方法注册到委托中</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        op = <span style="color:#0000ff">New</span> delegate1.opération(<span style="color:#0000ff">AddressOf</span> c1.ajouter)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; execution of delegated object</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 执行委托对象</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        n = op(2, 3)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;n=&quot; &amp; n))</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we register the subtract method of c1 in the delegate</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 将 c1 的减法方法注册到委托中</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        op = <span style="color:#0000ff">New</span> delegate1.opération(<span style="color:#0000ff">AddressOf</span> c1.soustraire)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        n = op(2, 3)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;n=&quot; &amp; n))</span></span>
@@ -806,316 +808,320 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>soustraire(2,3)
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>n=-1
 </code></pre></div>
-<h2 id="62">6.2. <span style="color: #4f81bd">事件处理</span></h2>
-<p><em>委托</em>对象可以用于什么？</p>
-<p>正如我们在下面的示例中所见，它主要用于事件处理。类 <em>C1</em> 可以生成 <em>evti</em> 事件。当发生 <em>evti</em> 事件时，类型为 <em>C1</em> 的对象将触发类型<em>为委托的 evtiDéclenché</em> 对象的执行。 随后，<em>evtiDéclenché</em> 委托对象中注册的所有函数都将被执行。如果使用对象 <em>C1</em> 的对象 <em>C2</em> 希望在对象 <em>C1</em> 上发生 <em>evti</em> 事件时收到通知，它将把其方法之一 <em>C2.f</em> 注册到对象 <em>C1</em> 的委托对象 <em>C1.evtiDéclenché</em> 中，这样每当对象 <em>C1</em> 上发生 <em>evti</em> 事件时，方法 <em>C2.f</em> 就会被执行。 由于委托对象 <em>C1.evtiDéclenché</em> 可以注册多个函数，因此不同的对象 <em>Ci</em> 均可向委托 <em>C1.evtiDéclenché</em> 注册，以接收关于 <em>C1</em> 上 <em>evti</em> 事件的通知。 </p>
-<h3 id="621">6.2.1. <span style="color: #4f81bd">声明事件</span></h3>
-<p>事件的声明如下 (1)：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">Delegate</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">proc</span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">d</span><span class="c">&#39;arguments)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">Public</span><span class="w"> </span><span class="k">Event</span><span class="w"> </span><span class="n">événement</span><span class="w"> </span><span class="ow">as</span><span class="w"> </span><span class="n">proc</span>
+<h2 id="62">6.2. <span style="color: #4f81bd">事件管理</span></h2>
+<p><em>delegate</em> 类型的对象有什么用途？</p>
+<p>正如我们在下面的示例中所见，这主要用于事件管理。一个名为 <em>C1</em> 的类可以生成 <em>evti</em> 类型的事件。 在发生 <em>evti</em> 事件时，一个 <em>C1</em> 类型的对象将触发一个 <em>evtiDéclenché</em> 类型的对象（其类型为 <em>delegate</em>）的执行。 此时，委托对象 <em>evtiDéclenché</em> 中注册的所有函数都将被执行。 如果一个使用 <em>C1</em> 对象的 <em>C2</em> 对象希望在 <em>C1</em> 对象上发生 <em>evti</em> 事件时收到通知， 它将把其方法 <em>C2.f</em> 之一注册到对象 <em>C1</em> 的委托对象 <em>C1.evtiDéclenché</em> 中，以便每当<em>evti</em> 事件发生在 <em>C1</em> 对象上时，该方法 C2.f 就会被执行。由于委托对象 <em>C1.evtiDéclenché</em> 可以注册多个函数， 不同的 <em>Ci</em> 对象可以向代理 <em>C1.evtiDéclenché</em> 注册，以便在 <em>C1</em> 上发生 <em>evti</em> 事件时收到通知。 </p>
+<h3 id="621">6.2.1. <span style="color: #4f81bd">事件声明</span></h3>
+<p>事件的声明方式如下 (1)：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> proc(<span style="color:#0000ff">liste d&#x27;arguments</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Public Event événement as proc</span></span>
 </code></pre></div>
-<p>或 (2)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">Public</span><span class="w"> </span><span class="k">Event</span><span class="w"> </span><span class="n">événement</span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">d</span><span class="c">&#39;arguments)</span>
+
+<p>或者 (2)</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
+<span class="odt-code-line"><span class="odt-code-line-content">Public Event événement(<span style="color:#0000ff">liste d&#x27;arguments</span>)</span></span>
 </code></pre></div>
-<p>关键字 [Event] 将一段数据定义为事件。该事件与其处理程序必须具备的签名相关联。该签名可以通过委托（方法 1）或直接（方法 2）进行定义。</p>
-<h3 id="622">6.2.2. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">定义事件处理程序</span></strong></span></h3>
-<p>当 [RaiseEvent] 语句触发事件时，必须对其进行处理。负责处理事件的程序称为事件处理程序。创建 [Event] 对象时，仅声明事件处理程序的签名。该签名即与事件关联的 [delegate] 对象的签名。 完成此步骤后，即可将处理程序与事件关联。这些处理程序必须与事件关联的 [delegate] 具有相同的签名。要将事件处理程序与事件关联，请使用 [AddHandler] 语句，语法如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>AddHandler event, AddressOf eventhandler
+
+<p>关键字 [Event] 将数据定义为事件。需为该事件关联其处理程序应具备的签名。可通过委托（方法 1）或直接（方法 2）定义该签名。</p>
+<h3 id="622">6.2.2. <span style="color: #4f81bd">定义事件处理程序</span></h3>
+<p>当事件由语句 [RaiseEvent] 触发时，必须对其进行处理。 负责处理事件的程序称为事件处理程序。在创建 [Event] 对象时，仅声明了事件处理程序的签名。该签名即为与该事件关联的 [delegate] 对象的签名。 完成上述步骤后，即可将事件处理程序与该事件关联。这些处理程序必须与该事件关联的 [delegate] 具有相同的签名。要将事件处理程序与事件关联，需使用语法如下所示的 [AddHandler] 语句：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>AddHandler event, AddressOf eventhandler
 </code></pre></div>
 <ul>
   <li><b>event</b>：要关联新事件处理程序的事件变量
   </li>
-  <li><b>eventhandler</b>：事件处理程序的名称——其签名必须与该事件关联的 [委托] 相同
+  <li><b>eventhandler</b>：事件处理程序的名称——必须具有与该事件关联的 [délégué] 的签名
   </li>
 </ul>
 
-<p>您可以为一个事件关联任意数量的处理程序。当关联的事件被触发时，所有处理程序都将被执行。</p>
+<p>一个事件可以关联任意数量的处理程序。当关联的事件被触发时，所有处理程序都将被执行。</p>
 <h3 id="623">6.2.3. <span style="color: #4f81bd">触发事件</span></h3>
-<p>要通过编程方式触发事件，请使用 [RaiseEvent] 语句：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">RaiseEvent</span><span class="w"> </span><span class="n">eventname</span><span class="o">[</span><span class="p">(</span><span class="w"> </span><span class="n">argumentlist</span><span class="w"> </span><span class="p">)</span><span class="o">]</span>
+<p>要通过程序触发事件，需使用指令 [RaiseEvent]：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">RaiseEvent</span><span class="w"> </span><span class="n">eventname</span><span class="o">[</span><span class="p">(</span><span class="w"> </span><span class="n">argumentlist</span><span class="w"> </span><span class="p">)</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-  <li><b>eventname</b>：事件变量（使用 Event 关键字声明）
+  <li><b>eventname</b>：事件变量（使用关键字 Event 声明）
   </li>
-  <li><b>参数列表</b>：与该事件关联的委托的参数。
+  <li><b>argumentlist</b>：与该事件关联的委托函数的参数。
   </li>
 </ul>
 
-<p>所有使用 AddHandler 语句与该事件关联的处理程序都将被调用。它们将接收事件签名中定义的参数作为参数。</p>
+<p>所有通过指令 AddHandler 与该事件关联的处理程序都将被调用。它们将接收事件签名中定义的参数作为参数。</p>
 <h3 id="624">6.2.4. <span style="color: #4f81bd">示例</span></h3>
 <p>请看以下示例：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27;event management</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;事件处理</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Imports</span> System</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> myEventArgs</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Inherits</span> EventArgs</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class of an evt</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件的类</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 属性</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> _saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 构造函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        _saisie = saisie</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; read-only property</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 只读属性</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _saisie</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> émetteur</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class issuing an event</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    Private _nom As String    &#x27; name of issuer</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件的触发类</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 属性</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> _nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>    <span style="font-weight:bold;color:#ff0000">&#x27; nom de l&#x27;émetteur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 构造函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        _nom = nom</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    &#x27; ToString</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _nom</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the prototype of the functions responsible for processing the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 负责处理该事件的函数原型</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> _evtHandler(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; pool of event managers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件处理程序池</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Event</span> evtHandler <span style="color:#0000ff">As</span> _evtHandler</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; method of requesting the issue of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 请求触发事件的方法</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> envoyerEvt(<span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; all subscribers are notified</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we act as if the event originated here</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 通知所有订阅者</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 模拟事件源自此处</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">RaiseEvent</span> evtHandler(<span style="color:#0000ff">Me</span>, evt)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; an evt treatment class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 事件处理类</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> souscripteur</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    Private nom As String    &#x27; name of subscriber</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    Private sender As émetteur    &#x27; evts sender</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 属性</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>    <span style="font-weight:bold;color:#ff0000">&#x27; nom du souscripteur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> sender <span style="color:#0000ff">As</span> émetteur    <span style="font-weight:bold;color:#ff0000">&#x27; l&#x27;émetteur des évts</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 构造函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>, <span style="color:#0000ff">ByVal</span> e <span style="color:#0000ff">As</span> émetteur)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we note the name of the subscriber</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 记录订阅者的名称</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Me</span>.nom = nom</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; and the sender of the evts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 以及事件的发布者</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Me</span>.sender = e</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; register to receive news from the transmitter e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 订阅以接收来自发布者的事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">AddHandler</span> e.evtHandler, <span style="color:#0000ff">AddressOf</span> traitementEvt</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; event manager</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件管理器</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> traitementEvt(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; evt display</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 事件显示</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.WriteLine((&quot;L&#x27;objet [&quot; + sender.ToString + &quot;] a signalé la saisie erronée [&quot; + evt.ToString + &quot;] au souscripteur [&quot; + nom + &quot;]&quot;))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; a test program</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 一个测试程序</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> test</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Sub</span> Main()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; creation of an evts transmitter</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 创建事件发送器</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> émetteur1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> émetteur(&quot;émetteur1&quot;)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; create a table of subscribers</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; for events issued by issuer1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 创建订阅者数组</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 用于订阅器1发出的事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> souscripteurs() <span style="color:#0000ff">As</span> souscripteur = {<span style="color:#0000ff">New</span> souscripteur(&quot;s1&quot;, émetteur1), <span style="color:#0000ff">New</span> souscripteur(&quot;s2&quot;, émetteur1)}</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; read a sequence of integers from the keyboard</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; as soon as one is wrong, we issue an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 从键盘读取一组整数</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 一旦其中一个有误，就触发一个事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span> = Console.In.ReadLine().Trim()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; as long as the line entered is not empty</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 只要输入的行不为空</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">While</span> saisie &lt;&gt; &quot;&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; is the input a whole number?</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 输入是否为整数？</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Try</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = <span style="color:#0000ff">Integer</span>.Parse(saisie)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Catch</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; not an integer</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; we warn everyone</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; 这不是一个整数</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; 通知所有人</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                émetteur1.envoyerEvt(<span style="color:#0000ff">New</span> myEventArgs(saisie))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">End</span> <span style="color:#0000ff">Try</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; we warn everyone</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; new entry</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 通知所有人</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 重新输入</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            saisie = Console.In.ReadLine().Trim()</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">While</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; end</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 结束</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        Environment.Exit(0)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
 </code></pre></div>
 
-<p>上面的代码相当复杂。让我们来分解一下。在事件处理中，有一个事件<em>发送者</em>，它会将事件详细信息（<em>EventArgs</em>）发送给对相关事件感兴趣的订阅者。此处的事件发送类如下：</p>
+<p>上述代码相当复杂。 让我们详细分析一下。在事件管理中，有一个事件发布者（<em>sender</em>），它将事件详情（<em>EventArgs</em>）发送给已声明对相关事件感兴趣的订阅者。此处的事件发布类如下：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> émetteur</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class issuing an event</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    Private _nom As String    &#x27; name of issuer</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件的触发类</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 属性</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> _nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>    <span style="font-weight:bold;color:#ff0000">&#x27; nom de l&#x27;émetteur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 构造函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        _nom = nom</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    &#x27; ToString</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _nom</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the prototype of the functions responsible for processing the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 负责处理该事件的函数原型</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> _evtHandler(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; pool of event managers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件处理程序池</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Event</span> evtHandler <span style="color:#0000ff">As</span> _evtHandler</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; method of requesting the issue of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 请求触发事件的方法</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> envoyerEvt(<span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; all subscribers are notified</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we act as if the event originated here</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 通知所有订阅者</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 将事件伪装成来自此处</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">RaiseEvent</span> evtHandler(<span style="color:#0000ff">Me</span>, evt)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
 </code></pre></div>
 
-<p>每个<em>发射器</em>对象都有一个默认<em>名称</em>。已重定义 <em>ToString</em> 方法，因此当<em>发射器</em>对象转换为<em>字符串时，</em>将返回其名称。该类定义了一个事件：</p>
+<p>每个 <em>émetteur</em> 对象在构造时都会被分配一个固定的 <em>nom</em>。 方法 <em>ToString</em> 已被重新定义，使得在将 <em>émetteur</em> 对象转换为 <em>string,</em> 时，将获取其名称。该类定义了一个事件：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the prototype of the functions responsible for processing the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 负责处理事件的函数原型</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Delegate</span> <span style="color:#0000ff">Sub</span> _evtHandler(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; the event</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Event</span> evtHandler <span style="color:#0000ff">As</span> _evtHandler</span></span>
 </code></pre></div>
 
-<p>事件处理函数的第一个参数将是触发该事件的对象。第二个参数的类型为 myEventArgs，这是一个提供事件详细信息的对象，我们稍后将对此进行讨论。若要在<em>触发器</em>对象外部触发事件，我们需在类中添加 <em>envoyerEvt</em> 方法：</p>
+<p>事件处理函数的第一个参数将是触发该事件的对象。 第二个参数的类型为 myEventArgs，这是一个提供事件详细信息的对象，我们稍后将详细讨论。为了能够从 <em>émetteur</em> 对象外部触发事件，我们在类中添加了方法 <em>envoyerEvt</em>：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; method of requesting the issue of an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 触发事件的方法</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> envoyerEvt(<span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; all subscribers are notified</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; we act as if the event originated here</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 通知所有订阅者</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 将事件伪装成来自此处</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">RaiseEvent</span> evtHandler(<span style="color:#0000ff">Me</span>, evt)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 </code></pre></div>
 
-<p>我们需要定义发射器类触发的事件类型。为此，我们定义了 <em>myEventArgs</em> 类：</p>
+<p>我们需要确定由类 <em>émetteur</em> 触发的事件类型。为此，我们定义了类 <em>myEventArgs</em>：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> myEventArgs</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; the class of an evt</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; attribute</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件的类</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 属性</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Private</span> _saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 构造函数</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        _saisie = saisie</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; read-only property</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 只读属性</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Overrides</span> <span style="color:#0000ff">Function</span> ToString() <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Return</span> _saisie</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Function</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
 </code></pre></div>
 
-<p>我们关注的是错误的键盘输入。我们将要求用户在键盘上输入整数，一旦他们输入的字符串不代表整数，就会触发一个事件。作为事件详情，我们将直接提供该错误输入。这就是该类中 <em>_input</em> 属性的作用。因此，会创建一个 <em>myEventArgs</em> 对象，并将错误输入作为其参数。 我们还重写了 <em>ToString</em> 方法，以便在将 <em>myEventArgs</em> 对象转换为字符串时，能够获取 <em>_input</em> 属性。 </p>
-<p>我们已经定义了事件发射器及其发出的事件类型。接下来，我们将定义对这些事件感兴趣的订阅者的类型。</p>
+<p>我们需要关注的事件是键盘输入错误。我们将要求用户通过键盘输入整数，一旦输入的字符串不代表整数，就会触发一个事件。 作为事件的详细信息，我们将仅提供错误输入内容。这就是该类中 <em>_saisie</em> 属性的作用。因此，会创建一个 <em>myEventArgs</em> 对象，其参数即为该错误输入。 此外，我们还重写了 <em>ToString</em> 方法，以便在将 <em>myEventArgs</em> 对象转换为字符串时，能获得 <em>_saisie</em> 属性。 </p>
+<p>我们已定义了事件发布者及其发布的事件类型。接下来，我们将定义对这些事件感兴趣的订阅者的类型。</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; an evt treatment class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 事件处理类</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> souscripteur</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; attribute</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        Private nom As String     &#x27; name of subscriber</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        Private sender As émetteur     &#x27; evts sender</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; manufacturer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 属性</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Private</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>     <span style="font-weight:bold;color:#ff0000">&#x27; nom du souscripteur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Private</span> sender <span style="color:#0000ff">As</span> émetteur     <span style="font-weight:bold;color:#ff0000">&#x27; l&#x27;émetteur des évts</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 制造商</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> <span style="color:#0000ff">New</span>(<span style="color:#0000ff">ByVal</span> nom <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span>, <span style="color:#0000ff">ByVal</span> e <span style="color:#0000ff">As</span> émetteur)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; we note the name of the subscriber</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 注明投保人姓名</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Me</span>.nom = nom</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; and the sender of the evts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 以及事件发布者</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Me</span>.sender = e</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; register to receive news from the transmitter e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 订阅以接收来自事件发布者的事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">AddHandler</span> e.evtHandler, <span style="color:#0000ff">AddressOf</span> traitementEvt</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; event manager</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 事件管理器</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Sub</span> traitementEvt(<span style="color:#0000ff">ByVal</span> sender <span style="color:#0000ff">As</span> <span style="color:#0000ff">Object</span>, <span style="color:#0000ff">ByVal</span> evt <span style="color:#0000ff">As</span> myEventArgs)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; evt display</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 事件显示</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            Console.Out.WriteLine((&quot;L&#x27;objet [&quot; + sender.ToString + &quot;] a signalé la saisie erronée [&quot; + evt.ToString + &quot;] au souscripteur [&quot; + nom + &quot;]&quot;))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">End</span> <span style="color:#0000ff">Class</span></span></span>
 </code></pre></div>
 
-<p>订阅者由两个参数定义：其名称（<em>name</em> 属性）以及它希望处理其事件的<em>发射器</em>对象（<em>sender</em> 属性）。这两个参数会被传递给对象的构造函数。在构造过程中，订阅者会订阅发射器的事件：</p>
+<p>一个订阅者将由两个参数定义：其名称（属性 <em>nom</em>）以及它希望处理其事件的对象 <em>émetteur</em>（属性 <em>sender</em>）。这两个参数将传递给对象的构造函数。 在该构造过程中，订阅者将订阅发布者的事件：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content">            <span style="font-weight:bold;color:#ff0000">&#x27; on s&#x27;inscrit pour recevoir les evts de l&#x27;émetteur e</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 注册以接收来自发布者 e 的事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">AddHandler</span> e.evtHandler, <span style="color:#0000ff">AddressOf</span> traitementEvt</span></span>
 </code></pre></div>
 
-<p>向发布者注册的函数是 <em><code>traitementEvt</code></em>。订阅者类的此方法会显示其接收到的两个参数（<em><code>sender</code></em>、<em><code>evt</code></em>）以及接收者的名称（<em><code>nom</code></em>）。已定义了生成的事件类型、这些事件发布者的类型以及订阅者的类型。剩下的就是实现它们：</p>
+<p>在发布者处注册的函数是 <em>traitementEvt</em>。 <em>souscripteur</em> 类的此方法会显示其接收的两个参数（<em>sender</em>、<em>evt</em>）以及接收器的名称（<em>nom</em>）。 已定义了生成的事件类型、这些事件的发送者类型以及订阅者的类型。现在我们只需将其实现：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vb.net">
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; a test program</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; 一个测试程序</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Class</span> test</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Public</span> <span style="color:#0000ff">Shared</span> <span style="color:#0000ff">Sub</span> Main()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; creation of an evts transmitter</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 创建事件发布者</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Dim</span> émetteur1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> émetteur(&quot;émetteur1&quot;)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; create a table of subscribers</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; for events issued by issuer1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 创建订阅者数组</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 用于接收发布者1发出的事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Dim</span> souscripteurs() <span style="color:#0000ff">As</span> souscripteur = {<span style="color:#0000ff">New</span> souscripteur(&quot;s1&quot;, émetteur1), <span style="color:#0000ff">New</span> souscripteur(&quot;s2&quot;, émetteur1)}</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; read a sequence of integers from the keyboard</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; as soon as one is wrong, we issue an evt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 从键盘读取一组整数</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 一旦其中一个有误，就触发一个事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">Dim</span> saisie <span style="color:#0000ff">As</span> <span style="color:#0000ff">String</span> = Console.In.ReadLine().Trim()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; as long as the line entered is not empty</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 只要输入的行不为空</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">While</span> saisie &lt;&gt; &quot;&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; is the input a whole number?</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; 输入是否为整数？</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">Try</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                    <span style="color:#0000ff">Dim</span> n <span style="color:#0000ff">As</span> <span style="color:#0000ff">Integer</span> = <span style="color:#0000ff">Integer</span>.Parse(saisie)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">Catch</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                    &#x27; not an integer</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                    &#x27; we warn everyone</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    &#x27; 这不是一个整数</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    &#x27; 通知所有人</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                    émetteur1.envoyerEvt(<span style="color:#0000ff">New</span> myEventArgs(saisie))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#0000ff">End</span> <span style="color:#0000ff">Try</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; we warn everyone</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; new entry</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; 通知所有人</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; 重新输入</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                Console.Out.Write(&quot;Nombre entier (rien pour arrêter) : &quot;)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                saisie = Console.In.ReadLine().Trim()</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">End</span> <span style="color:#0000ff">While</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; end</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &#x27; 结束</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">            Environment.Exit(0)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">End</span> <span style="color:#0000ff">Sub</span></span></span>
 </code></pre></div>
 
-<p>我们创建一个事件<em>发射器</em>对象：</p>
+<p>我们创建一个 <em>émetteur</em> 对象：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; creation of an evts transmitter</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 创建事件发送器</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> émetteur1 <span style="color:#0000ff">As</span> <span style="color:#0000ff">New</span> émetteur(&quot;émetteur1&quot;)</span></span>
 </code></pre></div>
 
-<p>我们<em>为émetteur</em>1对象发出的事件创建了一个包含两个订阅者的数组：</p>
+<p>我们为对象 <em>émetteur1</em> 发出的事件创建一个包含两个订阅者的数组：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; create a table of subscribers</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; for events issued by issuer1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 创建订阅者数组</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27; 针对发布者1发出的事件</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">Dim</span> souscripteurs() <span style="color:#0000ff">As</span> souscripteur = {<span style="color:#0000ff">New</span> souscripteur(&quot;s1&quot;, émetteur1), <span style="color:#0000ff">New</span> souscripteur(&quot;s2&quot;, émetteur1)}</span></span>
 </code></pre></div>
 
-<p>我们要求用户通过键盘输入整数。一旦输入错误，我们就要求 <em>issuer1</em> 向其订阅者发送一个事件：</p>
+<p>我们要求用户通过键盘输入整数。一旦输入错误，我们就要求 <em>émetteur1</em> 向其订阅者发送一个事件：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
-<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; on prévient tout le monde</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                &#x27; 通知所有人</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">                émetteur1.envoyerEvt(<span style="color:#0000ff">New</span> myEventArgs(saisie))</span></span>
 </code></pre></div>
 
-<p>发送的事件类型为 <em>myEventArgs</em>，其中包含错误的输入。两个订阅者都应收到此事件并进行报告。如下面的执行所示。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dos&gt;evt1
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Nombre entier (rien pour arrêter) : 4
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Nombre entier (rien pour arrêter) : a
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [a] au souscripteur [s1]
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [a] au souscripteur [s2]
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Nombre entier (rien pour arrêter) : 1.6
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [1.6] au souscripteur [s1]
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [1.6] au souscripteur [s2]
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Nombre entier (rien pour arrêter) :
+<p>发送的事件类型为 myEventArgs，其中包含错误的输入。两个订阅者都应接收该事件并进行响应。下文的执行结果展示了这一过程。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dos&gt;evt1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Nombre entier (rien pour arrêter) : 4
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Nombre entier (rien pour arrêter) : a
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [a] au souscripteur [s1]
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [a] au souscripteur [s2]
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Nombre entier (rien pour arrêter) : 1.6
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [1.6] au souscripteur [s1]
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>L&#39;objet [émetteur1] a signalé la saisie erronée [1.6] au souscripteur [s2]
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Nombre entier (rien pour arrêter) :
 </code></pre></div>
 
 
